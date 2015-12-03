@@ -72,6 +72,11 @@ Client.prototype.login = function (opts, cb) {
   })
 }
 
+Client.prototype.logout = function () {
+  this.setAuthToken(null)
+  this.setEmail(null)
+}
+
 Client.prototype.changePasswordRequest = function (opts, cb) {
   var url = this.getEndpoint('change-password-request')
   post(url, opts, {}, cb)
